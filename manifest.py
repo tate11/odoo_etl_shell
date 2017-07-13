@@ -24,7 +24,10 @@
     'depends': [],
 
     # always loaded
-    'data': [],
+    'data': [
+        'views/data_mapping.xml',
+        'views/res_config.xml',
+    ],
     'qweb': [],
     # only loaded in demonstration mode
     #'demo': [
