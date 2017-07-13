@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odooetlshell_view_config" model="ir.ui.view">
+            <field name="name">odooetlshell.config.settings.form</field>
+            <field name="model">odooetlshell.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configuration" class= "oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <group string="Configuration" name="odooetlshell_config">
+                        <field name="connection_config"/>
+                        <field name="script_path"/>
+                    </group>
+                    <group string="Mapping" name="odooetlshell_mapping">
+                        <label for="id" string="Data Mapping"/>
+                        <div>
+                            <div>
+                                <p class="text-muted">
+                                    Data Mapping will establish the
+                                    relation between external and
+                                    internal references. Don't change
+                                    these settings,  unless you really
+                                    know what you are doing.
+                                </p>
+                                <button type="action"
+                                        name="odooetlshell.odooetlshell_data_mapping_action"
+                                        string="Edit Data Mapping" class="btn-default"/>
+                            </div>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_odooetlshell_config_settings" model="ir.actions.act_window">
+            <field name="name">Odoo ETL Shell Config</field>
+            <field name="res_model">odooetlshell.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="odooetlshell_view_config"/>
+        </record>
+
+        <menuitem id="odooetlshell.menu_odooetlshell_config_settings" name="Settings" parent="odooetlshell.menu_root"
+                  sequence="99" action="action_odooetlshell_config_settings" groups="base.group_system"/>
+
+    </data>
+</odoo>
