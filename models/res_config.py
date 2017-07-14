@@ -3,8 +3,8 @@
 from odoo import fields, models, api
 
 
-class OdooEtlShell(models.TransientModel):
-    _name = 'odooetlshell.config.settings'
+class EtlShell(models.TransientModel):
+    _name = 'etlshell.config.settings'
     _inherit = 'res.config.settings'
 
     connection_config = fields.Char('Connection config')

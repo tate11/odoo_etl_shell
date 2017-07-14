@@ -1,52 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
 
-    <record id="odooetlshell_data_mapping_tree" model="ir.ui.view">
-        <field name="name">odooetlshell.data_mapping.tree</field>
-        <field name="model">odooetlshell.data_mapping</field>
-        <field name="arch" type="xml">
-            <tree string="Data Mapping" editable="top">
-                <field name="mapping_id"/>
-                <field name="from_value"/>
-                <field name="to_value"/>
-            </tree>
-        </field>
-    </record>
-
-    <record id="odooetlshell_data_mapping_search" model="ir.ui.view">
-        <field name="name">odooetlshell.data_mapping.search</field>
-        <field name="model">odooetlshell.data_mapping</field>
-        <field name="arch" type="xml">
-            <search string="Data Mapping">
-                <field name="mapping_id"/>
-                <field name="from_value"/>
-                <field name="to_value"/>
-                <group expand="0" string="Group By">
-                    <filter string="By Tag" context="{'group_by': 'mapping_id'}"/>
-                </group>
-            </search>
-        </field>
-    </record>
-
-    <record id="odooetlshell_data_mapping_form" model="ir.ui.view">
-        <field name="name">odooetlshell.data_mapping.tree</field>
-        <field name="model">odooetlshell.data_mapping</field>
-        <field name="arch" type="xml">
-            <form string="Data Mapping">
-                <group>
+        <record id="data_mapping_tree" model="ir.ui.view">
+            <field name="name">etlshell.data_mapping.tree</field>
+            <field name="model">etlshell.data_mapping</field>
+            <field name="arch" type="xml">
+                <tree string="Data Mapping" editable="top">
                     <field name="mapping_id"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
-                </group>
-            </form>
-        </field>
-    </record>
+                </tree>
+            </field>
+        </record>
 
-    <record id="odooetlshell_data_mapping_action" model="ir.actions.act_window">
-        <field name="name">Data Mapping</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">odooetlshell.data_mapping</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <record id="data_mapping_search" model="ir.ui.view">
+            <field name="name">etlshell.data_mapping.search</field>
+            <field name="model">etlshell.data_mapping</field>
+            <field name="arch" type="xml">
+                <search string="Data Mapping">
+                    <field name="mapping_id"/>
+                    <field name="from_value"/>
+                    <field name="to_value"/>
+                    <group expand="0" string="Group By">
+                        <filter string="By Tag" context="{'group_by': 'mapping_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="data_mapping_form" model="ir.ui.view">
+            <field name="name">etlshell.data_mapping.tree</field>
+            <field name="model">etlshell.data_mapping</field>
+            <field name="arch" type="xml">
+                <form string="Data Mapping">
+                    <group>
+                        <field name="mapping_id"/>
+                        <field name="from_value"/>
+                        <field name="to_value"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
 
 </odoo>

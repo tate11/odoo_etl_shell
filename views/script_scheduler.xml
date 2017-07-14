@@ -3,8 +3,8 @@
     <data>
 
         <record id="view_scheduler_record_form" model="ir.ui.view">
-            <field name="name">odooetlshell.scheduler.form</field>
-            <field name="model">odooetlshell.script_scheduler</field>
+            <field name="name">etlshell.scheduler.form</field>
+            <field name="model">etlshell.script_scheduler</field>
             <field name="arch" type="xml">
                 <form string="Schedule record">
                     <group>
@@ -18,8 +18,8 @@
 
         <!-- tree (list) view-->
         <record id="view_scheduler_tree" model="ir.ui.view">
-            <field name="name">odooetlshell.scheduler.tree</field>
-            <field name="model">odooetlshell.script_scheduler</field>
+            <field name="name">etlshell.scheduler.tree</field>
+            <field name="model">etlshell.script_scheduler</field>
             <field name="arch" type="xml">
                 <tree string="Schedules">
                     <field name="script_config"/>

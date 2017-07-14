@@ -5,7 +5,7 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class DataMapping(models.Model):
-    _name = 'odooetlshell.data_mapping'
+    _name = 'etlshell.data_mapping'
     _description = 'Data mapping table'
 
     # Basic info
