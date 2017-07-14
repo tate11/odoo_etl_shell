@@ -2,7 +2,7 @@
 {
     'name': "Odoo ETL Shell",
 
-    'application': True,
+    'application': False,
 
     'summary': """
         A rudimentary framework that serves as a basis for creating complex Odoo ETL modules""",
