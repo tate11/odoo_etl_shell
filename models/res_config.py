@@ -3,12 +3,12 @@
 from odoo import fields, models, api
 
 
-class EtlShell(models.TransientModel):
-    _name = 'etlshell.config.settings'
+class OdooEtlShellConfig(models.TransientModel):
+    _name = 'odoo_etl_shell.config.settings'
     _inherit = 'res.config.settings'
 
     connection_config = fields.Char('Connection config')
-    script_path = fields.Char('Job script path')
+    script_path = fields.Char('Script path')
 
     @api.multi
     def set_connection_config(self):

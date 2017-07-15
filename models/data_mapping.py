@@ -5,14 +5,11 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class DataMapping(models.Model):
-    _name = 'etlshell.data_mapping'
+    _name = 'odoo_etl_shell.data_mapping'
     _description = 'Data mapping table'
 
     # Basic info
-    mapping_id = fields.Char('Mapping ID')
+    module_name = fields.Char('Module Name', required=True)
+    etl_context = fields.Char('Mapping Context')
     from_value = fields.Text('From value')
     to_value = fields.Text('To value')
-
-    _sql_constraints = [
-        ('mapping_id_unique', 'unique(mapping_id)', 'The mapping ID must be unique')
-    ]

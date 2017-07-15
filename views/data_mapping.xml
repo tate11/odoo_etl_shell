@@ -3,11 +3,11 @@
     <data>
 
         <record id="data_mapping_tree" model="ir.ui.view">
-            <field name="name">etlshell.data_mapping.tree</field>
-            <field name="model">etlshell.data_mapping</field>
+            <field name="name">odoo_etl_shell.data_mapping.tree</field>
+            <field name="model">odoo_etl_shell.data_mapping</field>
             <field name="arch" type="xml">
                 <tree string="Data Mapping" editable="top">
-                    <field name="mapping_id"/>
+                    <field name="etl_context"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
                 </tree>
@@ -15,11 +15,11 @@
         </record>
 
         <record id="data_mapping_search" model="ir.ui.view">
-            <field name="name">etlshell.data_mapping.search</field>
-            <field name="model">etlshell.data_mapping</field>
+            <field name="name">odoo_etl_shell.data_mapping.search</field>
+            <field name="model">odoo_etl_shell.data_mapping</field>
             <field name="arch" type="xml">
                 <search string="Data Mapping">
-                    <field name="mapping_id"/>
+                    <field name="etl_context"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
                     <group expand="0" string="Group By">
@@ -30,12 +30,12 @@
         </record>
 
         <record id="data_mapping_form" model="ir.ui.view">
-            <field name="name">etlshell.data_mapping.tree</field>
-            <field name="model">etlshell.data_mapping</field>
+            <field name="name">odoo_etl_shell.data_mapping.tree</field>
+            <field name="model">odoo_etl_shell.data_mapping</field>
             <field name="arch" type="xml">
                 <form string="Data Mapping">
                     <group>
-                        <field name="mapping_id"/>
+                        <field name="etl_context"/>
                         <field name="from_value"/>
                         <field name="to_value"/>
                     </group>

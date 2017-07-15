@@ -1,7 +1,8 @@
 from odoo import fields, models
 
+
 class script_scheduler(models.Model):
-    _name = 'etlshell.script_scheduler'
+    _name = 'odoo_etl_shell.script_scheduler'
     _inherits = 'ir.cron'
 
     script_config = fields.Char('Configuration')

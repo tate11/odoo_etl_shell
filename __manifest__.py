@@ -26,7 +26,7 @@
     # always loaded
     'data': [
         'views/data_mapping.xml',
-        #'views/res_config.xml',
+        'views/res_config.xml',
         #'views/script_scheduler.xml',
     ],
     'qweb': [],
