@@ -25,6 +25,7 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'views/data_mapping.xml',
         'views/res_config.xml',
         #'views/script_scheduler.xml',

@@ -13,18 +13,18 @@ class OdooEtlShellConfig(models.TransientModel):
     @api.multi
     def set_connection_config(self):
         connection_config = self[0].connection_config or ''
-        self.env['ir.config_parameter'].set_param(self._name, connection_config,  groups=['base.group_system'])
+        self.env['ir.config_parameter'].set_param('odoo_etl_shell.connection_config', connection_config,  groups=['base.group_system'])
 
     @api.multi
     def set_script_path(self):
-        script_path = self[0].connection_config or ''
-        self.env['ir.config_parameter'].set_param(self._name, script_path,  groups=['base.group_system'])
+        script_path = self[0].script_path or ''
+        self.env['ir.config_parameter'].set_param('odoo_etl_shell.script_path', script_path,  groups=['base.group_system'])
 
     @api.multi
     def get_default_etl_config(self, fields=None):
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        connection_config = get_param(self._name + '.connection_config', default='')
-        script_path = get_param(self._name + '.script_path', default='')
+        connection_config = get_param('odoo_etl_shell.connection_config', default='')
+        script_path = get_param('odoo_etl_shell.script_path', default='')
         return {
             'connection_config': connection_config,
             'script_path': script_path,
