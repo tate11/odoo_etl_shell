@@ -7,6 +7,7 @@ class OdooEtlShellConfig(models.TransientModel):
     _name = 'odoo_etl_shell.config.settings'
     _inherit = 'res.config.settings'
 
+    module_name = fields.Char('Module Name', required=True)
     connection_config = fields.Char('Connection config')
     script_path = fields.Char('Script path')
 
