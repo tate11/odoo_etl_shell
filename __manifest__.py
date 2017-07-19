@@ -12,7 +12,7 @@
     """,
 
     'author': "community",
-    'website': "https://github.com/idazco/odoo-etl-shell",
+    'website': "https://github.com/idazco/odoo_etl_shell",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
