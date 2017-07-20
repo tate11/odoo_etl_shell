@@ -3,6 +3,11 @@ from subprocess import Popen
 
 
 class JobSteps(models.Model):
+    """ Defines sequential script steps for ETL routines
+    The target script will be in charge of running the
+    next steps using a xml-rpc call on the step object
+    """
+
     _name = 'etl.step'
 
     name = fields.Char('Step Name')
@@ -15,15 +20,17 @@ class JobSteps(models.Model):
     @api.model
     def run_steps(self):
         get_param = self.env['ir.config_parameter'].sudo().get_param
-        startup_job = self.env['etl.job'].search([('parent_id', '=', False)])
+        start_step = self.env['etl.step'].search([('parent_id', '=', False)])
         # If parent_id=False then we must run the ir.config_parameter
-        if startup_job:
-            cron_job = self.env['ir.cron'].sudo().search([('start_job_id', '=', startup_job.id)])
+        if start_step:
+            cron_job = self.env['ir.cron'].sudo().search([('start_job_id', '=', start_step.id)])
             script_path = get_param('odoo_etl_shell.script_path', default=False)
             if script_path:
-                p = Popen([script_path], shell=True)
+                # First argument of the script ($0) will be the step_id
+                p = Popen([script_path, start_step.id], shell=True)
                 self.env['ir.cron.instance'].sudo().create({
-                    'name': startup_job.name,
+                    'name': start_step.name,
+                    'step_id': start_step.id,
                     'cron_id': cron_job.id,
                     'pid': p.pid
                 })

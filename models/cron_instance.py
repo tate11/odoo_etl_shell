@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from odoo.tools.safe_eval import safe_eval
+from subprocess import Popen
 
 
 class IRCronInstance(models.Model):
@@ -10,7 +10,26 @@ class IRCronInstance(models.Model):
 
     # Basic info
     name = fields.Char('Job Instance ID', required=True)
+    step_id = fields.Many2one('etl.step', string='Related Step')
     pid = fields.Integer('Process ID')
     cron_id = fields.Many2one('ir.cron', string='Scheduled Action')
     date_start = fields.Datetime('Instance Start')
     date_end = fields.Datetime('Instance End', help='if not empty, it means that the job is completed')
+
+    @api.model
+    def run_next_steps(self):
+        """ This method must be instantiated from the xml-rpc
+        Using the correct parent step_id
+
+        :return:
+        """
+
+        next_steps = self.env['etl.step'].search([('parent_id', '=', self.step_id)])
+        for step in next_steps:
+            if step.script_path:
+                p = Popen([step.script_path, step.id], shell=True)
+                self.env['ir.cron.instance'].sudo().create({
+                    'name': step.name,
+                    'step_id': step.id,
+                    'pid': p.pid
+                })
