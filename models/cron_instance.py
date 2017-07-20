@@ -12,6 +12,12 @@ class IRCronInstance(models.Model):
     name = fields.Char('Job Instance ID', required=True)
     step_id = fields.Many2one('etl.step', string='Related Step')
     pid = fields.Integer('Process ID')
+    progress = fields.Integer('Progress')
+    # Need to check every 1 sec if its running
+    run_state = fields.Selection([('start', 'Start'),
+                                  ('run', 'Run'),
+                                  ('stop',  'Stop'),
+                                  ('pause', 'Pause')], string='Run State', default='start')
     cron_id = fields.Many2one('ir.cron', string='Scheduled Action')
     date_start = fields.Datetime('Instance Start')
     date_end = fields.Datetime('Instance End', help='if not empty, it means that the job is completed')

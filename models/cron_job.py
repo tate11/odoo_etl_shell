@@ -26,7 +26,7 @@ class JobSteps(models.Model):
             cron_job = self.env['ir.cron'].sudo().search([('start_job_id', '=', start_step.id)])
             script_path = get_param('odoo_etl_shell.script_path', default=False)
             if script_path:
-                # First argument of the script ($0) will be the step_id
+                # First argument of the script ($1) will be the step_id
                 p = Popen([script_path, start_step.id], shell=True)
                 self.env['ir.cron.instance'].sudo().create({
                     'name': start_step.name,
