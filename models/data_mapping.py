@@ -10,7 +10,7 @@ class DataMapping(models.Model):
 
     # Basic info
     module_name = fields.Char('Module Name', required=True)
-    direction = fields.Selection([('in', 'Import'), ('out', 'Export')], string='Module Name',
+    direction = fields.Selection([('in', 'Import'), ('out', 'Export')], string='Mapping Direction',
                                  default='in', required=True)
     etl_context = fields.Char('Mapping Context')
     from_value = fields.Text('From value')
