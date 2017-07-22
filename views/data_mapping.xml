@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <tree string="Data Mapping" editable="top">
                     <field name="etl_context"/>
+                    <field name="direction"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
                 </tree>
@@ -20,6 +21,7 @@
             <field name="arch" type="xml">
                 <search string="Data Mapping">
                     <field name="etl_context"/>
+                    <field name="direction"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
                     <group expand="0" string="Group By">
@@ -36,6 +38,7 @@
                 <form string="Data Mapping">
                     <group>
                         <field name="etl_context"/>
+                        <field name="direction"/>
                         <field name="from_value"/>
                         <field name="to_value"/>
                     </group>
@@ -44,5 +47,4 @@
         </record>
 
     </data>
-
 </odoo>
