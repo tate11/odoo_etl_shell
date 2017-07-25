@@ -37,6 +37,7 @@ class JobSteps(models.Model):
                     'cron_id': cron_job.id,
                     'pid': p.pid
                 })
+                return True
 
 
 class IRCron(models.Model):
