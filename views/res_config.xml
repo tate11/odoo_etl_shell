@@ -11,10 +11,6 @@
                         <button string="Apply" type="object" name="execute" class="oe_highlight"/>
                         <button string="Cancel" type="object" name="cancel" class="oe_link"/>
                     </header>
-                    <group string="Configuration" name="odoo_etl_shell_config">
-                        <field name="connection_config"/>
-                        <field name="script_path"/>
-                    </group>
                 </form>
             </field>
         </record>

@@ -2,7 +2,7 @@
 {
     'name': "Odoo ETL Shell",
 
-    'application': True,
+    'application': False,
 
     'summary': """
         A rudimentary framework that serves as a basis for creating complex Odoo ETL modules""",
@@ -28,12 +28,9 @@
         'security/ir.model.access.csv',
         'views/data_mapping.xml',
         'views/res_config.xml',
-        'data/cron_data.xml',
-        #'views/script_scheduler.xml',
     ],
     'qweb': [],
     # only loaded in demonstration mode
     'demo': [
-        'demo/steps_demo.xml',
     ],
 }

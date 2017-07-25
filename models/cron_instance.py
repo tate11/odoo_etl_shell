@@ -19,7 +19,7 @@ class IRCronInstance(models.Model):
                                   ('stop',  'Stop'),
                                   ('pause', 'Pause')], string='Run State', default='start')
     cron_id = fields.Many2one('ir.cron', string='Scheduled Action')
-    date_start = fields.Datetime('Instance Start')
+    date_start = fields.Datetime('Instance Start', default=lambda self: fields.datetime.now())
     date_end = fields.Datetime('Instance End', help='if not empty, it means that the job is completed')
 
     @api.model
@@ -32,6 +32,7 @@ class IRCronInstance(models.Model):
 
         next_steps = self.env['etl.step'].search([('parent_id', '=', self.step_id)])
         for step in next_steps:
+            step.date_end = fields.datetime.now()
             if step.script_path:
                 p = Popen([step.script_path, step.id], shell=True)
                 self.env['ir.cron.instance'].sudo().create({
