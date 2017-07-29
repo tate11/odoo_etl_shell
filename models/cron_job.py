@@ -39,6 +39,15 @@ class JobSteps(models.Model):
                 })
                 return True
 
+    @api.model
+    def get_etl_config(self, etl_module_name):
+        """This is an abstract method that needs to be extended
+        by all ETL modules
+
+        :param etl_module_name:
+        :return: dict()
+        """
+        return {}
 
 class IRCron(models.Model):
     _inherit = 'ir.cron'
