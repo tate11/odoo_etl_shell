@@ -7,7 +7,8 @@
             <field name="model">odoo_etl_shell.data_mapping</field>
             <field name="arch" type="xml">
                 <tree string="Data Mapping" editable="top">
-                    <field name="etl_context"/>
+                    <field name="etl_context" domain="[('module_name', '=', context.get('default_module_name', 0))]" widget="selection"/>
+                    <field name="module_name" invisible="1"/>
                     <field name="direction"/>
                     <field name="from_value"/>
                     <field name="to_value"/>
@@ -37,7 +38,8 @@
             <field name="arch" type="xml">
                 <form string="Data Mapping">
                     <group>
-                        <field name="etl_context"/>
+                        <field name="etl_context" domain="[('module_name', '=', context.get('default_module_name', 0))]" widget="selection"/>
+                        <field name="module_name" invisible="1"/>
                         <field name="direction"/>
                         <field name="from_value"/>
                         <field name="to_value"/>

@@ -15,5 +15,17 @@
             </field>
         </record>
 
+        <record model="ir.actions.act_window" id="odoo_etl_shell.res_config_action">
+            <field name="name">ETL Shell</field>
+            <field name="res_model">odoo_etl_shell.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="odoo_etl_shell.config_view"/>
+        </record>
+
+        <menuitem name="ETL Shell" id="odoo_etl_shell.res_config_menu"
+                  parent="base.menu_automation"
+                  action="odoo_etl_shell.res_config_action"/>
+
     </data>
 </odoo>
