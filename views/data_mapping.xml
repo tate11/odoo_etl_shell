@@ -26,7 +26,7 @@
                     <field name="from_value"/>
                     <field name="to_value"/>
                     <group expand="0" string="Group By">
-                        <filter string="By Tag" context="{'group_by': 'mapping_id'}"/>
+                        <filter string="By Tag" context="{'group_by': 'etl_context'}"/>
                     </group>
                 </search>
             </field>
