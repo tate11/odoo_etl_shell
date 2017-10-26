@@ -17,8 +17,8 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Technical Settings',
-    'version': '0.1',
+    'category': 'Utilities',
+    'version': '0.2',
 
     # any module necessary for this one to work correctly
     'depends': [],
@@ -33,4 +33,5 @@
     # only loaded in demonstration mode
     'demo': [
     ],
+    'post_init_hook': 'database_alterations',
 }
