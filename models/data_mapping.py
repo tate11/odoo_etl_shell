@@ -20,7 +20,7 @@ class DataMapping(models.Model):
 
     # Basic info
     module_name = fields.Char('Module Name', required=True)
-    direction = fields.Selection([('in', 'Import'), ('out', 'Export')], string='Mapping Direction',
+    direction = fields.Selection([('in', 'Import'), ('out', 'Export'), ('any', 'Import/ExportExport')], string='Mapping Direction',
                                  default='in', required=True)
     etl_context = fields.Many2one('odoo_etl_shell.etl_context', string='Mapping Context')
     from_value = fields.Text('From value')
