@@ -9,5 +9,5 @@ class KeyList(models.Model):
 
     list_name = fields.Char('List Name', required=True, default='white_list', invisible=True)
     name = fields.Char('Value Name', required=True)
-    sync_hoa = fields.Boolean('Import', required=True, default=False)
+    is_active = fields.Boolean('Activate', required=True, default=False)
     module_name = fields.Char('Module', required=True)
